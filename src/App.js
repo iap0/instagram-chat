@@ -9,13 +9,13 @@ function App() {
     const messagesEndRef = useRef(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/conversations')
+        axios.get('https://97c8-2409-40c1-1c-1947-b52c-8ed4-728f-1491.ngrok-free.app/conversations')
             .then(response => setConversations(response.data))
             .catch(error => console.error('Error fetching conversations:', error));
     }, []);
 
     const loadMessages = (id) => {
-        axios.get(`http://localhost:5000/messages/${id}`)
+        axios.get(`https://97c8-2409-40c1-1c-1947-b52c-8ed4-728f-1491.ngrok-free.app/messages/${id}`)
             .then(response => {
                 setMessages(response.data.reverse());  // No reverse() → Oldest to Newest order
                 setSelectedConversation(id);
